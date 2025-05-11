@@ -149,7 +149,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
+    "rootEnvPath": "../../.env",
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -170,7 +170,7 @@ const config = {
   },
   "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Post {\n  id        String   @id @default(cuid())\n  title     String\n  content   String\n  published Boolean? @default(false)\n  updatedAt DateTime @updatedAt\n  createdAt DateTime @default(now())\n}\n",
   "inlineSchemaHash": "aa27c46f1bd29391b2d15c9e1d2632678a3d1703546f57ae5fc018b5fc80de6e",
-  "copyEngine": false
+  "copyEngine": true
 }
 config.dirname = '/'
 
