@@ -106,15 +106,14 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
-};
-
-exports.Prisma.PostOrderByRelevanceFieldEnum = {
-  id: 'id',
-  title: 'title',
-  content: 'content'
 };
 
 
@@ -132,7 +131,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\newnextprisma\\generated\\prisma",
+      "value": "C:\\Users\\bluez\\OneDrive\\Desktop\\newnextprisma\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -146,7 +145,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\newnextprisma\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\bluez\\OneDrive\\Desktop\\newnextprisma\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -159,7 +158,7 @@ const config = {
   "datasourceNames": [
     "db"
   ],
-  "activeProvider": "mysql",
+  "activeProvider": "postgresql",
   "postinstall": false,
   "inlineDatasources": {
     "db": {
@@ -169,9 +168,9 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Post {\n  id        String   @id @default(cuid())\n  title     String\n  content   String\n  published Boolean? @default(false)\n  updatedAt DateTime @updatedAt\n  createdAt DateTime @default(now())\n}\n",
-  "inlineSchemaHash": "8f23dbdd93ea494167bdf7ccd46ec463078729415cf500e170357315604095f3",
-  "copyEngine": true
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Post {\n  id        String   @id @default(cuid())\n  title     String\n  content   String\n  published Boolean? @default(false)\n  updatedAt DateTime @updatedAt\n  createdAt DateTime @default(now())\n}\n",
+  "inlineSchemaHash": "aa27c46f1bd29391b2d15c9e1d2632678a3d1703546f57ae5fc018b5fc80de6e",
+  "copyEngine": false
 }
 config.dirname = '/'
 
