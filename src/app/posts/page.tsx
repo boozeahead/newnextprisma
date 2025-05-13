@@ -3,21 +3,26 @@ import { prisma } from "../client";
 import Link from "next/link";
 
 export default async function PostsPage() {
-  const posts = await prisma.post.findMany({
+  // const posts = await prisma.post.findMany({
+  const user = await prisma.user.findUnique({
     where: {
-      published: false,
+      // published: false,
+      email: "John@gmail.com",
+    },
+    include: {
+      posts: true,
     },
 
-    orderBy: {
-      createdAt: "desc",
-    },
+    // orderBy: {
+    //   createdAt: "desc",
+    // },
 
-    select: {
-      id: true,
-      title: true,
-      slug: true,
-    },
-    // take: 1,
+    // select: {
+    //   id: true,
+    //   title: true,
+    //   slug: true,
+    // },
+    // // take: 1,
     // skip: 1,
   });
 
@@ -26,7 +31,7 @@ export default async function PostsPage() {
     <main>
       <h1>All Posts ({postsCount})</h1>
       <ul>
-        {posts.map((post) => (
+        {user?.posts.map((post) => (
           <li key={post.id}>
             <Link href={`/posts/${post.slug}`}>{post.title}</Link>
           </li>
