@@ -3,16 +3,15 @@ import { prisma } from "../client";
 import Link from "next/link";
 
 export default async function PostsPage() {
-  // const posts = await prisma.post.findMany({
   const user = await prisma.user.findUnique({
     where: {
       // published: false,
-      email: "John@gmail.com",
+      email: "john@gmail.com",
     },
     include: {
       posts: true,
     },
-
+    // const posts = await prisma.post.findMany({
     // orderBy: {
     //   createdAt: "desc",
     // },
